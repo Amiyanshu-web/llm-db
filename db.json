@@ -14,16 +14,16 @@
   "LLMs": [
 {
 "name": "Hugging Face Transformers",
-"image": "<https://huggingface.co/front/assets/transformers-logo.svg>",
+"image": "https://huggingface.co/front/assets/transformers-logo.svg",
 "category": "Natural Language Processing",
 "description": "Hugging Face Transformers is a state-of-the-art general-purpose library for Natural Language Processing (NLP). It provides thousands of pretrained models to perform tasks on texts such as classification, information extraction, summarization, translation, text generation, etc.",
 "provider": "Hugging Face",
-"code_snippet": "python\nfrom transformers import AutoTokenizer, AutoModelForSequenceClassification\n\ntokenizer = AutoTokenizer.from_pretrained(\"bert-base-uncased\")\nmodel = AutoModelForSequenceClassification.from_pretrained(\"bert-base-uncased\")\n\ninputs = tokenizer(\"Hello, my dog is cute\", return_tensors=\"pt")\noutputs = model(**inputs)\n\n",
+"code_snippet": "python\nfrom transformers import AutoTokenizer, AutoModelForSequenceClassification\n\ntokenizer = AutoTokenizer.from_pretrained(\"bert-base-uncased\")\nmodel = AutoModelForSequenceClassification.from_pretrained(\"bert-base-uncased\")\n\ninputs = tokenizer(\"Hello, my dog is cute\", return_tensors=\"pt",
 "use_cases": ["Text Classification", "Named Entity Recognition", "Question Answering", "Sentiment Analysis", "Translation"]
 },
 {
 "name": "TensorFlow Text",
-"image": "<https://www.tensorflow.org/_static/tf_logo_horizontal.png>",
+"image": "https://www.tensorflow.org/_static/tf_logo_horizontal.png",
 "category": "Natural Language Processing",
 "description": "TensorFlow Text is a collection of text processing utilities including tokenization, stemming, and other common natural language processing (NLP) operations. TensorFlow Text makes these tools available via eager execution enabling developers to build scalable NLP applications quickly without worrying about performance.",
 "provider": "Google / TensorFlow",
@@ -32,16 +32,16 @@
 },
 {
 "name": "spaCy",
-"image": "<https://spacy.io/images/spacy-mark-dark.svg>",
+"image": "https://spacy.io/images/spacy-mark-dark.svg",
 "category": "Natural Language Processing",
 "description": "spaCy is a free, open-source library for advanced Natural Language Processing (NLP) in Python. It's designed specifically for production use and helps you build applications that process and understand large volumes of text data.",
 "provider": "Explosion AI",
-"code_snippet": "python\nimport spacy\nnlp = spacy.load('en_core_web_sm')\ndoc = nlp(\"Apple pie recipe.\")\nfor ent in doc.ents:\n\tprint(ent.text, ent.label\_)\n",
+"code_snippet": "python\nimport spacy\nnlp = spacy.load('en_core_web_sm')\ndoc = nlp(\"Apple pie recipe.\")\nfor ent in doc.ents:\n\tprint(ent.text, ent.label_)\n",
 "use_cases": ["Dependency Parsing", "Information Extraction", "Named Entity Recognition", "Part-Of-Speech Tagging", "Syntax Parsing"]
 },
 {
 "name": "Gensim",
-"image": "<https://riverbankcomputing.com.s3.amazonaws.com/software/gensim/logos/gensim_logo.png>",
+"image": "https://riverbankcomputing.com.s3.amazonaws.com/software/gensim/logos/gensim_logo.png>",
 "category": "Natural Language Processing",
 "description": "Gensim is a robust open-source vector space modeling and topic modeling toolkit implemented in Python. It uses NumPy, SciPy and optional Cython for performance. Gensim is particularly good at handling large text collections, like Wikipedia or news datasets.",
 "provider": "Radim Řehůřek & company",
@@ -54,7 +54,7 @@
 "category": "Computer Vision",
 "description": "Real-time object detection system capable of detecting multiple objects within an image with high accuracy and speed.",
 "provider": "Joseph Redmon et al.",
-"example_code_snippet": "C++\n#include <opencv2/opencv.hpp>\n#include <opencv2/dnn.hpp>\n\nvoid detectObjects(cv::Mat& image) {\n cv::dnn::Net net = cv::dnn::readNetFromDarknet("yolov4.cfg", "yolov4.weights");\n std::vectorstd::string layersNames = net.getLayerNames();\n net.setInput(cv::dnn::blobFromImage(image, 1 / 255.0, cv::Size(416, 416), cv::Scalar(0, 0, 0), true, false));\n std::vectorcv::Mat outputs;\n net.forward(outputs, layersNames);\n // Process outputs...\n}",
+"example_code_snippet": "C++\n#include <opencv2/opencv.hpp>\n#include <opencv2/dnn.hpp>\n\nvoid detectObjects(cv::Mat& image) {\n cv::dnn::Net net = cv::dnn::readNetFromDarknet(\"yolov4.cfg\", \"yolov4.weights\");\n std::vector<std::string> layersNames = net.getLayerNames();\n net.setInput(cv::dnn::blobFromImage(image, 1 / 255.0, cv::Size(416, 416), cv::Scalar(0, 0, 0), true, false));\n std::vector<cv::Mat> outputs;\n net.forward(outputs, layersNames);\n // Process outputs...\n}",
 "use_cases": ["Object detection in surveillance videos", "Real-time traffic monitoring"]
 },
 {
