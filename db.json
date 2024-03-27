@@ -1,124 +1,181 @@
 {
-  "posts": [
-    { "id": 1, "title": "Post 1" },
-    { "id": 2, "title": "Post 2" },
-    { "id": 3, "title": "Post 3" }
-  ],
-  "comments": [
-    { "id": 1, "body": "some comment", "postId": 1 },
-    { "id": 2, "body": "some comment", "postId": 1 }
-  ],
-  "profile": {
-    "name": "typicode"
-  },
-  "LLMs": [
-{
-"name": "Hugging Face Transformers",
-"image": "https://huggingface.co/front/assets/transformers-logo.svg",
-"category": "Natural Language Processing",
-"description": "Hugging Face Transformers is a state-of-the-art general-purpose library for Natural Language Processing (NLP). It provides thousands of pretrained models to perform tasks on texts such as classification, information extraction, summarization, translation, text generation, etc.",
-"provider": "Hugging Face",
-"code_snippet": "python\nfrom transformers import AutoTokenizer, AutoModelForSequenceClassification\n\ntokenizer = AutoTokenizer.from_pretrained(\"bert-base-uncased\")\nmodel = AutoModelForSequenceClassification.from_pretrained(\"bert-base-uncased\")\n\ninputs = tokenizer(\"Hello, my dog is cute\", return_tensors=\"pt",
-"use_cases": ["Text Classification", "Named Entity Recognition", "Question Answering", "Sentiment Analysis", "Translation"]
-},
-{
-"name": "TensorFlow Text",
-"image": "https://www.tensorflow.org/_static/tf_logo_horizontal.png",
-"category": "Natural Language Processing",
-"description": "TensorFlow Text is a collection of text processing utilities including tokenization, stemming, and other common natural language processing (NLP) operations. TensorFlow Text makes these tools available via eager execution enabling developers to build scalable NLP applications quickly without worrying about performance.",
-"provider": "Google / TensorFlow",
-"code_snippet": "python\nimport tensorflow_text as tf_text\n\nsentence = \"This is an apple pie recipe. You need flour, sugar, apples\"\nwords = tf_text.whitespace_split(sentence)\nprint(words)\n",
-"use_cases": ["Data Preprocessing", "Text Normalization", "Text Feature Extraction", "Tokenization"]
-},
-{
-"name": "spaCy",
-"image": "https://spacy.io/images/spacy-mark-dark.svg",
-"category": "Natural Language Processing",
-"description": "spaCy is a free, open-source library for advanced Natural Language Processing (NLP) in Python. It's designed specifically for production use and helps you build applications that process and understand large volumes of text data.",
-"provider": "Explosion AI",
-"code_snippet": "python\nimport spacy\nnlp = spacy.load('en_core_web_sm')\ndoc = nlp(\"Apple pie recipe.\")\nfor ent in doc.ents:\n\tprint(ent.text, ent.label_)\n",
-"use_cases": ["Dependency Parsing", "Information Extraction", "Named Entity Recognition", "Part-Of-Speech Tagging", "Syntax Parsing"]
-},
-{
-"name": "Gensim",
-"image": "https://riverbankcomputing.com.s3.amazonaws.com/software/gensim/logos/gensim_logo.png>",
-"category": "Natural Language Processing",
-"description": "Gensim is a robust open-source vector space modeling and topic modeling toolkit implemented in Python. It uses NumPy, SciPy and optional Cython for performance. Gensim is particularly good at handling large text collections, like Wikipedia or news datasets.",
-"provider": "Radim Řehůřek & company",
-"code_snippet": "python\nfrom gensim.models import Word2Vec\n\nsentences = [\n['this', 'is', 'the', 'first', 'sentence'],\n['this', 'is', 'the', 'second', 'sentence'],\n]\n\nmodel = Word2Vec(sentences=sentences, min_count=1)\n\nprint(model.wv['sentence'])\n",
-"use_cases": ["Topic Modeling", "Document Similarity", "Word Embeddings"]
-},
-{
-"name": "YOLO v4",
-"image": "https://pjreddie.com/media/files/yolo_v4_large.jpg",
-"category": "Computer Vision",
-"description": "Real-time object detection system capable of detecting multiple objects within an image with high accuracy and speed.",
-"provider": "Joseph Redmon et al.",
-"example_code_snippet": "C++\n#include <opencv2/opencv.hpp>\n#include <opencv2/dnn.hpp>\n\nvoid detectObjects(cv::Mat& image) {\n cv::dnn::Net net = cv::dnn::readNetFromDarknet(\"yolov4.cfg\", \"yolov4.weights\");\n std::vector<std::string> layersNames = net.getLayerNames();\n net.setInput(cv::dnn::blobFromImage(image, 1 / 255.0, cv::Size(416, 416), cv::Scalar(0, 0, 0), true, false));\n std::vector<cv::Mat> outputs;\n net.forward(outputs, layersNames);\n // Process outputs...\n}",
-"use_cases": ["Object detection in surveillance videos", "Real-time traffic monitoring"]
-},
-{
-"name": "ResNet-50",
-"image": "https://miro.medium.com/max/798/1UbYY6lBKVuvMlKKaD8-yew@2x.png",
-"category": "Image Classification",
-"description": "Deep residual network architecture with 50 layers used primarily for image recognition and classification tasks.",
-"provider": "Microsoft Research",
-"example_code_snippet": "Python\nfrom tensorflow.keras.applications import ResNet50\n\n# Load pre-trained ResNet-50 model\nmodel = ResNet50(weights='imagenet')\n\n# Preprocess input image\nimg = preprocess_input(image)\n\n# Predict class probabilities\npredictions = model.predict(img)",
-"use_cases": ["Identifying objects in images", "Medical image analysis"]
-},
-{
-"name": "VGG-16",
-"image": "https://miro.medium.com/max/1024/1RgDLhTZPTWxrMTXeNqfxmA.png",
-"category": "Image Classification",
-"description": "Convolutional neural network architecture with 16 layers, mainly utilized for visual recognition challenges.",
-"provider": "Oxford Visual Geometry Group",
-"example_code_snippet": "Python\nfrom keras.applications.vgg16 import VGG16\n\n# Load pre-trained VGG-16 model\nmodel = VGG16(weights='imagenet')\n\n# Preprocess input image\nimg = preprocess_input(image)\n\n# Predict class probabilities\npredictions = model.predict(img)",
-"use_cases": ["Image recognition in social media", "Plant species identification"]
-},
-{
-"name": "FastText",
-"image": "https://dl.fbaipublicfiles.com/fasttext/ logo.png",
-"category": "Natural Language Processing",
-"description": "Efficient text classification and representation learning library based on shallow convolutional networks.",
-"provider": "Facebook AI Research",
-"example_code_snippet": "Python\nimport fasttext\n\n# Train FastText model\nmodel = fasttext.train_supervised(input='train.txt')\n\n# Predict text classification\nlabel, score = model.predict('This is a test sentence.')",
-"use_cases": ["Sentiment analysis", "Spam detection"]
-},
-{
-"name": "LightGBM",
-"image": "https://lightgbm.readthedocs.io/en/latest/_static/logo-small.png",
-"category": "Gradient Boosting Decision Trees",
-"description": "Highly efficient gradient boosting framework that uses tree-based learning algorithms and is distributed under the MIT license.",
-"provider": "Microsoft Research Asia",
-"example_code_snippet": "Python\nimport lightgbm as lgb\n\n# Train LightGBM model\ntrain_data = lgb.Dataset(data=train_features, label=train_labels)\nmodel = lgb.train(params, train_data)\n\n# Predict with the trained model\npredictions = model.predict(test_features)",
-"use_cases": ["Predictive modeling", "Anomaly detection"]
-},
-{
-"name": "CatBoost",
-"image": "https://catboost.ai/wp-content/uploads/2018/10/catboost_logo.png",
-"category": "Gradient Boosting Decision Trees",
-"description": "Open-source algorithm for machine learning tasks that uses gradient boosting on decision trees and has excellent default settings.",
-"provider": "Yandex Data Lab",
-"example_code_snippet": "Python\nfrom catboost import CatBoostClassifier\n\n# Train CatBoost model\nmodel = CatBoostClassifier()\nmodel.fit(train_data, train_labels)\n\n# Predict with the trained model\npredictions = model.predict(test_data)",
-"use_cases": ["Customer churn prediction", "Credit risk assessment"]
-},
-{
-"name": "XGBoost",
-"image": "https://xgboost.readthedocs.io/en/stable/_static/xgb-logo.png",
-"category": "Gradient Boosting Decision Trees",
-"description": "Optimized distributed gradient boosting library that is designed to be highly efficient, flexible, and portable.",
-"provider": "Tianqi Chen",
-"example_code_snippet": "Python\nimport xgboost as xgb\n\n# Train XGBoost model\nmodel = xgb.XGBClassifier()\nmodel.fit(train_data, train_labels)\n\n# Predict with the trained model\npredictions = model.predict(test_data)",
-"use_cases": ["Predictive modeling", "Financial forecasting"]
-},
-{
-"name": "Prophet",
-"image": "https://facebook.github.io/prophet/docs/figures/prophet-mark-github.png",
-"category": "Time Series Forecasting",
-"description": "Procedural time series forecasting package built using Python and Cython for efficiency, released under the MIT license by Facebook.",
-"provider": "Facebook",
-"example_code_snippet": "Python\nfrom fbprophet import Prophet\n\n# Initialize Prophet model\nmodel = Prophet()\n\n# Fit the model\nmodel.fit(train_data)\n\n# Predict future values\nfuture = model.make_future_dataframe(periods=30)\nforecast = model.predict(future)",
-"use_cases": ["Sales forecasting", "Stock market prediction"]
-}
-]
+  "data": [
+    {
+      "id": 1,
+      "name": "Hugging Face Transformers",
+      "image": "https://huggingface.co/front/assets/huggingface_logo-noborder.svg",
+      "category": "Natural Language Processing",
+      "description": "Hugging Face Transformers is a state-of-the-art general-purpose library for Natural Language Processing (NLP). It provides thousands of pretrained models to perform tasks on texts such as classification, information extraction, summarization, translation, text generation, etc.",
+      "provider": "Hugging Face",
+      "code_snippet": "python\nfrom transformers import AutoTokenizer, AutoModelForSequenceClassification\n\ntokenizer = AutoTokenizer.from_pretrained(\"bert-base-uncased\")\nmodel = AutoModelForSequenceClassification.from_pretrained(\"bert-base-uncased\")\n\ninputs = tokenizer(\"Hello, my dog is cute\", return_tensors=\"pt",
+      "featured": true,
+      "use_cases": [
+        "Text Classification",
+        "Named Entity Recognition",
+        "Question Answering",
+        "Sentiment Analysis",
+        "Translation"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "TensorFlow Text",
+      "image": "https://www.gstatic.com/devrel-devsite/prod/vdd667e8703bf3eb3250e728f4f199ed0baf72dd7a2c58290f8fa685e2652be47/tensorflow/images/lockup.svg",
+      "category": "Natural Language Processing",
+      "description": "TensorFlow Text is a collection of text processing utilities including tokenization, stemming, and other common natural language processing (NLP) operations. TensorFlow Text makes these tools available via eager execution enabling developers to build scalable NLP applications quickly without worrying about performance.",
+      "provider": "Google / TensorFlow",
+      "code_snippet": "python\nimport tensorflow_text as tf_text\n\nsentence = \"This is an apple pie recipe. You need flour, sugar, apples\"\nwords = tf_text.whitespace_split(sentence)\nprint(words)\n",
+      "featured": true,
+      "use_cases": [
+        "Data Preprocessing",
+        "Text Normalization",
+        "Text Feature Extraction",
+        "Tokenization"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "spaCy",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQnrUJ4JUiMZeIXJO_kHKwlZdzbseAhD-ACM_bEzd7B3A&s",
+      "category": "Natural Language Processing",
+      "description": "spaCy is a free, open-source library for advanced Natural Language Processing (NLP) in Python. It's designed specifically for production use and helps you build applications that process and understand large volumes of text data.",
+      "provider": "Explosion AI",
+      "code_snippet": "python\nimport spacy\nnlp = spacy.load('en_core_web_sm')\ndoc = nlp(\"Apple pie recipe.\")\nfor ent in doc.ents:\n\tprint(ent.text, ent.label_)\n",
+      "featured": false,
+      "use_cases": [
+        "Dependency Parsing",
+        "Information Extraction",
+        "Named Entity Recognition",
+        "Part-Of-Speech Tagging",
+        "Syntax Parsing"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Gensim",
+      "image": "https://riverbankcomputing.com.s3.amazonaws.com/software/gensim/logos/gensim_logo.png",
+      "category": "Natural Language Processing",
+      "description": "Gensim is a robust open-source vector space modeling and topic modeling toolkit implemented in Python. It uses NumPy, SciPy and optional Cython for performance. Gensim is particularly good at handling large text collections, like Wikipedia or news datasets.",
+      "provider": "Radim Řehůřek & company",
+      "code_snippet": "python\nfrom gensim.models import Word2Vec\n\nsentences = [\n['this', 'is', 'the', 'first', 'sentence'],\n['this', 'is', 'the', 'second', 'sentence'],\n]\n\nmodel = Word2Vec(sentences=sentences, min_count=1)\n\nprint(model.wv['sentence'])\n",
+      "featured": false,
+      "use_cases": [
+        "Topic Modeling",
+        "Document Similarity",
+        "Word Embeddings"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "YOLO v4",
+      "image": "https://pjreddie.com/media/image/yologo_2.png",
+      "category": "Computer Vision",
+      "description": "Real-time object detection system capable of detecting multiple objects within an image with high accuracy and speed.",
+      "provider": "Joseph Redmon et al.",
+      "example_code_snippet": "C++\n#include <opencv2/opencv.hpp>\n#include <opencv2/dnn.hpp>\n\nvoid detectObjects(cv::Mat& image) {\n cv::dnn::Net net = cv::dnn::readNetFromDarknet(\"yolov4.cfg\", \"yolov4.weights\");\n std::vector<std::string> layersNames = net.getLayerNames();\n net.setInput(cv::dnn::blobFromImage(image, 1 / 255.0, cv::Size(416, 416), cv::Scalar(0, 0, 0), true, false));\n std::vector<cv::Mat> outputs;\n net.forward(outputs, layersNames);\n // Process outputs...\n}",
+      "featured": false,
+      "use_cases": [
+        "Object detection in surveillance videos",
+        "Real-time traffic monitoring"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "ResNet-50",
+      "image": "https://www.mathworks.com/images/responsive/global/pic-header-mathworks-logo2.svg",
+      "category": "Image Classification",
+      "description": "Deep residual network architecture with 50 layers used primarily for image recognition and classification tasks.",
+      "provider": "Microsoft Research",
+      "example_code_snippet": "Python\nfrom tensorflow.keras.applications import ResNet50\n\n# Load pre-trained ResNet-50 model\nmodel = ResNet50(weights='imagenet')\n\n# Preprocess input image\nimg = preprocess_input(image)\n\n# Predict class probabilities\npredictions = model.predict(img)",
+      "featured": false,
+      "use_cases": [
+        "Identifying objects in images",
+        "Medical image analysis"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "VGG-16",
+      "image": "https://www.mathworks.com/images/responsive/global/pic-header-mathworks-logo2.svg",
+      "category": "Image Classification",
+      "description": "Convolutional neural network architecture with 16 layers, mainly utilized for visual recognition challenges.",
+      "provider": "Oxford Visual Geometry Group",
+      "example_code_snippet": "Python\nfrom keras.applications.vgg16 import VGG16\n\n# Load pre-trained VGG-16 model\nmodel = VGG16(weights='imagenet')\n\n# Preprocess input image\nimg = preprocess_input(image)\n\n# Predict class probabilities\npredictions = model.predict(img)",
+      "featured": false,
+      "use_cases": [
+        "Image recognition in social media",
+        "Plant species identification"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "FastText",
+      "image": "https://fasttext.cc/img/fasttext-icon-white-web.png",
+      "category": "Natural Language Processing",
+      "description": "Efficient text classification and representation learning library based on shallow convolutional networks.",
+      "provider": "Facebook AI Research",
+      "example_code_snippet": "Python\nimport fasttext\n\n# Train FastText model\nmodel = fasttext.train_supervised(input='train.txt')\n\n# Predict text classification\nlabel, score = model.predict('This is a test sentence.')",
+      "featured": true,
+      "use_cases": [
+        "Sentiment analysis",
+        "Spam detection"
+      ]
+    },
+    {
+      "id" : 9,
+      "name": "LightGBM",
+      "image": "https://lightgbm.readthedocs.io/en/stable/_static/LightGBM_logo_grey_text.svg",
+      "category": "Gradient Boosting Decision Trees",
+      "description": "Highly efficient gradient boosting framework that uses tree-based learning algorithms and is distributed under the MIT license.",
+      "provider": "Microsoft Research Asia",
+      "example_code_snippet": "Python\nimport lightgbm as lgb\n\n# Train LightGBM model\ntrain_data = lgb.Dataset(data=train_features, label=train_labels)\nmodel = lgb.train(params, train_data)\n\n# Predict with the trained model\npredictions = model.predict(test_features)",
+      "featured": false,
+      "use_cases": [
+        "Predictive modeling",
+        "Anomaly detection"
+      ]
+    },
+    {
+      "id":10,
+      "name": "CatBoost",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5MqNqY6L5RzzD-4_4zjq2U5nkQ6n3uqjPt1Gee0Z94g&s",
+      "category": "Gradient Boosting Decision Trees",
+      "description": "Open-source algorithm for machine learning tasks that uses gradient boosting on decision trees and has excellent default settings.",
+      "provider": "Yandex Data Lab",
+      "example_code_snippet": "Python\nfrom catboost import CatBoostClassifier\n\n# Train CatBoost model\nmodel = CatBoostClassifier()\nmodel.fit(train_data, train_labels)\n\n# Predict with the trained model\npredictions = model.predict(test_data)",
+      "featured": false,
+      "use_cases": [
+        "Customer churn prediction",
+        "Credit risk assessment"
+      ]
+    },
+    {
+      "id":11,
+      "name": "XGBoost",
+      "image": "https://xgboost.readthedocs.io/en/stable/_static/xgb-logo.png",
+      "category": "Gradient Boosting Decision Trees",
+      "description": "Optimized distributed gradient boosting library that is designed to be highly efficient, flexible, and portable.",
+      "provider": "Tianqi Chen",
+      "example_code_snippet": "Python\nimport xgboost as xgb\n\n# Train XGBoost model\nmodel = xgb.XGBClassifier()\nmodel.fit(train_data, train_labels)\n\n# Predict with the trained model\npredictions = model.predict(test_data)",
+      "featured": false,
+      "use_cases": [
+        "Predictive modeling",
+        "Financial forecasting"
+      ]
+    },
+    {
+      "id":12,
+      "name": "Prophet",
+      "image": "https://facebook.github.io/prophet/docs/figures/prophet-mark-github.png",
+      "category": "Time Series Forecasting",
+      "description": "Procedural time series forecasting package built using Python and Cython for efficiency, released under the MIT license by Facebook.",
+      "provider": "Facebook",
+      "example_code_snippet": "Python\nfrom fbprophet import Prophet\n\n# Initialize Prophet model\nmodel = Prophet()\n\n# Fit the model\nmodel.fit(train_data)\n\n# Predict future values\nfuture = model.make_future_dataframe(periods=30)\nforecast = model.predict(future)",
+      "featured": false,
+      "use_cases": [
+        "Sales forecasting",
+        "Stock market prediction"
+      ]
+    }
+  ]
 }
