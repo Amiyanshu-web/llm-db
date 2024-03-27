@@ -100,5 +100,49 @@
     "Plant species identification"
   ]
 }
+],
+  "featured": [
+  {
+    "id": 13,
+    "name": "ChatGPT",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIQaInK4DqLH8szalaA2-bBUHz2toGRo8VW9G2uzGb5w&s",
+    "category": "Natural Language Processing",
+    "description": "ChatGPT is an AI model developed by OpenAI for generating human-like text responses. It is trained on a diverse range of internet text and is capable of engaging in conversation on various topics.",
+    "provider": "OpenAI",
+    "use_cases": [
+      "Conversational Agents",
+      "Text Generation",
+      "Customer Support Chatbots"
+    ],
+    "code_snippet": "python\nfrom transformers import GPT2LMHeadModel, GPT2Tokenizer\n\n# Load pretrained model and tokenizer\nmodel = GPT2LMHeadModel.from_pretrained('gpt2')\ntokenizer = GPT2Tokenizer.from_pretrained('gpt2')\n\n# Generate text\ninput_text = 'How are you?'\ninput_ids = tokenizer.encode(input_text, return_tensors='pt')\noutput_ids = model.generate(input_ids, max_length=100, num_return_sequences=1)\noutput_text = tokenizer.decode(output_ids[0], skip_special_tokens=True)\nprint(output_text)"
+  },
+  {
+    "id": 14,
+    "name": "TensorFlow",
+    "image": "https://www.gstatic.com/devrel-devsite/prod/vdd667e8703bf3eb3250e728f4f199ed0baf72dd7a2c58290f8fa685e2652be47/tensorflow/images/lockup.svg",
+    "category": "Machine Learning Framework",
+    "description": "TensorFlow is an open-source machine learning framework developed by Google. It provides a comprehensive ecosystem of tools, libraries, and community resources for building and deploying machine learning models.",
+    "provider": "Google",
+    "use_cases": [
+      "Deep Learning",
+      "Neural Networks",
+      "Image Recognition"
+    ],
+    "code_snippet": "python\nimport tensorflow as tf\n\n# Example code using TensorFlow\nmodel = tf.keras.Sequential([\n    tf.keras.layers.Dense(10, activation='relu', input_shape=(784,)),\n    tf.keras.layers.Dense(10)\n])\nmodel.compile(optimizer='adam', loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True), metrics=['accuracy'])"
+  },
+  {
+    "id": 15,
+    "name": "Stable Diffusion",
+    "image": "https://tooldirectory.ai/_next/image?url=https%3A%2F%2Fstriking-kindness-e0d93214bb.media.strapiapp.com%2FStable_Diffusion_logo_2b68efd6c7.png&w=1920&q=72",
+    "category": "Natural Language Processing",
+    "description": "Stable Diffusion is a probabilistic generative model that can generate high-quality natural language text. It utilizes a diffusion process to iteratively refine its predictions, resulting in coherent and diverse text generation.",
+    "provider": "Stable Diffusion",
+    "use_cases": [
+      "Text Generation",
+      "Data Augmentation",
+      "Content Creation"
+    ],
+    "code_snippet": "python\nfrom stablediffusion import StableDiffusion\n\n# Example usage of Stable Diffusion\nmodel = StableDiffusion()\ninput_text = 'The cat sat on the mat.'\ngenerated_text = model.generate_text(input_text, max_length=100)"
+  }
 ]
 }
