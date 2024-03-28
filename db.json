@@ -50,7 +50,7 @@
     {
       "id": 4,
       "name": "Gensim",
-      "image": "https://riverbankcomputing.com.s3.amazonaws.com/software/gensim/logos/gensim_logo.png",
+      "image": "https://radimrehurek.com/gensim/_static/images/gensim.png",
       "category": "Natural Language Processing",
       "description": "Gensim is a robust open-source vector space modeling and topic modeling toolkit implemented in Python. It uses NumPy, SciPy and optional Cython for performance. Gensim is particularly good at handling large text collections, like Wikipedia or news datasets.",
       "provider": "Radim Řehůřek & company",
@@ -68,7 +68,7 @@
       "category": "Computer Vision",
       "description": "Real-time object detection system capable of detecting multiple objects within an image with high accuracy and speed.",
       "provider": "Joseph Redmon et al.",
-      "example_code_snippet": "C++\n#include <opencv2/opencv.hpp>\n#include <opencv2/dnn.hpp>\n\nvoid detectObjects(cv::Mat& image) {\n cv::dnn::Net net = cv::dnn::readNetFromDarknet(\"yolov4.cfg\", \"yolov4.weights\");\n std::vector<std::string> layersNames = net.getLayerNames();\n net.setInput(cv::dnn::blobFromImage(image, 1 / 255.0, cv::Size(416, 416), cv::Scalar(0, 0, 0), true, false));\n std::vector<cv::Mat> outputs;\n net.forward(outputs, layersNames);\n // Process outputs...\n}",
+      "code_snippet": "C++\n#include <opencv2/opencv.hpp>\n#include <opencv2/dnn.hpp>\n\nvoid detectObjects(cv::Mat& image) {\n cv::dnn::Net net = cv::dnn::readNetFromDarknet(\"yolov4.cfg\", \"yolov4.weights\");\n std::vector<std::string> layersNames = net.getLayerNames();\n net.setInput(cv::dnn::blobFromImage(image, 1 / 255.0, cv::Size(416, 416), cv::Scalar(0, 0, 0), true, false));\n std::vector<cv::Mat> outputs;\n net.forward(outputs, layersNames);\n // Process outputs...\n}",
       "use_cases": [
         "Object detection in surveillance videos",
         "Real-time traffic monitoring"
@@ -81,7 +81,7 @@
       "category": "Image Classification",
       "description": "Deep residual network architecture with 50 layers used primarily for image recognition and classification tasks.",
       "provider": "Microsoft Research",
-      "example_code_snippet": "Python\nfrom tensorflow.keras.applications import ResNet50\n\n# Load pre-trained ResNet-50 model\nmodel = ResNet50(weights='imagenet')\n\n# Preprocess input image\nimg = preprocess_input(image)\n\n# Predict class probabilities\npredictions = model.predict(img)",
+      "code_snippet": "Python\nfrom tensorflow.keras.applications import ResNet50\n\n# Load pre-trained ResNet-50 model\nmodel = ResNet50(weights='imagenet')\n\n# Preprocess input image\nimg = preprocess_input(image)\n\n# Predict class probabilities\npredictions = model.predict(img)",
       "use_cases": [
         "Identifying objects in images",
         "Medical image analysis"
