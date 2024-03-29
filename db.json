@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Hugging Face Transformers",
-      "image": "https://huggingface.co/front/assets/huggingface_logo-noborder.svg",
+      "image": "https://editor.analyticsvidhya.com/uploads/6350167a2c0590affeba7880ebeb46a115d863972d8ba.png",
       "category": "Natural Language Processing",
       "description": "Hugging Face Transformers is a state-of-the-art general-purpose library for Natural Language Processing (NLP). It provides thousands of pretrained models to perform tasks on texts such as classification, information extraction, summarization, translation, text generation, etc.",
       "provider": "Hugging Face",
